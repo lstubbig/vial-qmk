@@ -36,6 +36,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     { B6, E6, D4, C6, D7} \
 }
 
+// layer toggle TT()
+#define TAPPING_TOGGLE 3
+
 // encoder
 #define ENCODERS_PAD_A { B4 }
 #define ENCODERS_PAD_B { B5 }

@@ -32,27 +32,27 @@ enum custom_keycodes {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_Media] = LAYOUT_ENCODER(
-        KC_MUTE,    KC_AUDIO_VOL_DOWN,      KC_AUDIO_VOL_UP,
-        KC_S,       KC_MEDIA_PREV_TRACK,    KC_MEDIA_NEXT_TRACK,
-        KC_F,       KC_SPACE,               LT(_Nav, KC_MEDIA_PLAY_PAUSE),
+        KC_MUTE,                 KC_AUDIO_VOL_DOWN,      KC_AUDIO_VOL_UP,
+        LALT(LCTL(LSFT(KC_V))),  KC_MEDIA_PREV_TRACK,    KC_MEDIA_NEXT_TRACK,
+        KC_F,       KC_SPACE,    LT(_Nav, KC_MEDIA_PLAY_PAUSE),
         KC_MUTE
     ),
     [_Nav] = LAYOUT_ENCODER(
-        KC_HOME,            KC_UP,      KC_END,
-        KC_LEFT,            KC_DOWN,    KC_RIGHT,
-        LCTL(LALT(KC_V)),   KC_ENTER,   _______,
+        KC_HOME,    KC_UP,      KC_END,
+        KC_LEFT,    KC_DOWN,    KC_RIGHT,
+        TG(3),      TG(2),      _______,
         _______
     ),
     [_2] = LAYOUT_ENCODER(
-        _______,     _______,    _______,
-        _______,     _______,    _______,
-        _______,     _______,    _______,
+        KC_MY_COMPUTER,     KC_BRIGHTNESS_DOWN, KC_BRIGHTNESS_UP,
+        KC_WWW_REFRESH,     KC_WWW_BACK,        KC_WWW_FORWARD,
+        KC_MAIL,            KC_CALC,            TO(0),
         _______
     ),
     [_3] = LAYOUT_ENCODER(
-        _______,    _______,    _______,
-        _______,    _______,    _______,
-        _______,    _______,    _______,
+        KC_BTN1,    KC_MS_UP,    KC_BTN2,
+        KC_MS_LEFT, KC_MS_DOWN,  KC_MS_RIGHT,
+        KC_F13,     KC_BTN3,     TO(0),
         _______
     )
 };
@@ -107,6 +107,8 @@ void encoder_update_user(uint8_t index, bool clockwise) {
 // oled display functions
 // #ifdef OLED_DRIVER_ENABLE
 oled_rotation_t oled_init_user(oled_rotation_t rotation) {
+    oled_scroll_set_area(3, 3);
+    oled_scroll_set_speed(1);
     return OLED_ROTATION_180;  // flips the display 180 degrees if offhand
 }
 
@@ -146,8 +148,8 @@ void oled_task_user(void) {
             // oled_set_cursor(14, 3);
             oled_write_P(PSTR("Nav\n"), false);
             break;
-        case _2:
-            oled_write_P(PSTR("Shortcut\n"), false);
+        case _2: 
+            oled_write_P(PSTR("Comp\n"), false);
             break;
         case _3:
             // oled_set_cursor(14, 3);
@@ -157,5 +159,7 @@ void oled_task_user(void) {
             // Or use the write_ln shortcut over adding '\n' to the end of your string
             oled_write_ln_P(PSTR("Hello there."), false);
     }
+
+    // oled_scroll_left();
 }
 // #endiff

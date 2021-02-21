@@ -47,8 +47,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define UNUSED_PINS { D0, D1, D2, D3, D4, D5, D6, D7 }  
 
 // Exiting bootloader doesn't work, JTAG interference? Disabled with fuses
-#define QMK_ESC_INPUT F0
-#define QMK_ESC_OUTPUT F7
+#define QMK_ESC_INPUT F1
+#define QMK_ESC_OUTPUT F6
 
 /* COL2ROW, ROW2COL */
 #define DIODE_DIRECTION COL2ROW

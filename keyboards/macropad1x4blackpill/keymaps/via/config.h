@@ -1,0 +1,9 @@
+#pragma once
+
+#define DYNAMIC_KEYMAP_LAYER_COUNT 4
+#define BOOTMAGIC_LITE_ROW 0
+#define BOOTMAGIC_LITE_COLUMN 0
+
+#define VIAL_KEYBOARD_UID {0x0A, 0x3B, 0xB6, 0x2A, 0x28, 0x39, 0x26, 0xD9}
+#define VIAL_UNLOCK_COMBO_ROWS { 0, 0 }
+#define VIAL_UNLOCK_COMBO_COLS { 0, 3 }

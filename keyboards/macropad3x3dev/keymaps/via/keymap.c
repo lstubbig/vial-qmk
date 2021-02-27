@@ -33,7 +33,7 @@ enum custom_keycodes {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_Media] = LAYOUT_ENCODER(
         KC_MUTE,                 KC_AUDIO_VOL_DOWN,      KC_AUDIO_VOL_UP,
-        LALT(LCTL(LSFT(KC_V))),  KC_MEDIA_PREV_TRACK,    KC_MEDIA_NEXT_TRACK,
+        LALT(LCTL(KC_V)),  KC_MEDIA_PREV_TRACK,    KC_MEDIA_NEXT_TRACK,
         KC_F,       KC_SPACE,    LT(_Nav, KC_MEDIA_PLAY_PAUSE),
         KC_MUTE
     ),

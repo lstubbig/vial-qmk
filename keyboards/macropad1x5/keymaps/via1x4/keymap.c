@@ -1,4 +1,4 @@
-/* Copyright 2020 Leon Stubbig <leonstubbig@web.de>
+/* Copyright 2021 Leon Stubbig <leonstubbig@web.de>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -22,10 +22,10 @@ enum layer_names {
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-    [_Media] = LAYOUT(
+    [_Media] = LAYOUT_1x4(
         TT(_BL), KC_MPRV, KC_MNXT, KC_MPLY
     ),
-    [_BL] = LAYOUT(
+    [_BL] = LAYOUT_1x4(
         _______, LCTL(LSFT(LALT(KC_M))), LGUI(KC_F4), BL_TOGG
     ),
 };

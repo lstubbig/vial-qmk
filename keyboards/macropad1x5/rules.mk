@@ -38,3 +38,6 @@ ENCODER_ENABLE = yes
 LEADER_ENABLE = no 
 KEY_LOCK_ENABLE = no
 TERMINAL_ENABLE = no
+
+# default revision
+DEFAULT_FOLDER = macropad1x5/rev03

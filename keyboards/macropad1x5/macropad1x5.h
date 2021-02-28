@@ -17,6 +17,13 @@
 
 #include "quantum.h"
 
+// Select revision
+#if defined(KEYBOARD_macropad1x5_rev01)
+    #include "rev01.h"
+#elif defined(KEYBOARD_macropad1x5_rev03)
+    #include "rev03.h"
+#endif
+
 /* This a shortcut to help you visually see your layout.
  *
  * The first section contains all of the arguments representing the physical
@@ -29,4 +36,11 @@
     K1, K2, K3, K4, K5 \
 ) { \
     { K1, K2, K3, K4, K5 } \
+}
+
+// Layout for encoders without button
+#define LAYOUT_1x4( \
+    K2, K3, K4, K5 \
+) { \
+    { KC_NO, K2, K3, K4, K5 } \
 }

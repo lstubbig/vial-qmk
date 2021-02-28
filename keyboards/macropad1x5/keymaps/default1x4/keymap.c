@@ -1,4 +1,4 @@
-/* Copyright 2020 Leon Stubbig <leonstubbig@web.de>
+/* Copyright 2021 Leon Stubbig <leonstubbig@web.de>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -13,20 +13,29 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-#pragma once
+#include QMK_KEYBOARD_H
 
-#include "quantum.h"
+// Defines names for use in layer keycodes and the keymap
+enum layer_names {
+    _Media,
+    _BL,
+};
 
-/* This a shortcut to help you visually see your layout.
- *
- * The first section contains all of the arguments representing the physical
- * layout of the board and position of the keys.
- *
- * The second converts the arguments into a two-dimensional array which
- * represents the switch matrix.
- */
-#define LAYOUT( \
-    K1, K2, K3, K4, K5 \
-) { \
-    { K1, K2, K3, K4, K5 } \
+const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
+    [_Media] = LAYOUT_1x4(
+        LCTL(LSFT(LALT(KC_M))), KC_MPRV, KC_MNXT, KC_MPLY
+    ),
+    [_BL] = LAYOUT_1x4(
+        _______, BL_DEC, BL_INC, BL_BRTG
+    ),
+};
+
+void encoder_update_user(uint8_t index, bool clockwise) {
+    if (index == 0) { /* First encoder */
+        if (clockwise) {
+            tap_code(KC_AUDIO_VOL_UP);
+        } else {
+            tap_code(KC_AUDIO_VOL_DOWN);
+        }
+    }
 }

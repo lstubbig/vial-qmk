@@ -37,7 +37,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define ENCODER_RESOLUTION 4
 
 // backlight
-#define BACKLIGHT_LEVELS 5
+#define BACKLIGHT_LEVELS 10
 #define BACKLIGHT_BREATHING
 #define BREATHING_PERIOD 6
 

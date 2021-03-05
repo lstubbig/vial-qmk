@@ -34,6 +34,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // backlight
 #define BACKLIGHT_PIN C6
 
+// RGB underglow
+#define RGB_DI_PIN F6
+#define RGBLED_NUM 6
+#define RGBLIGHT_ANIMATIONS
+
 // Vial ID
 #define VIAL_KEYBOARD_UID {0x4D, 0x10, 0x8A, 0xFB, 0x35, 0x74, 0x5A, 0x6C}
 

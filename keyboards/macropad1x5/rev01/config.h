@@ -36,5 +36,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define BACKLIGHT_PIN F7
 
 // Vial ID
+#undef VIAL_KEYBOARD_UID
 #define VIAL_KEYBOARD_UID {0x38, 0x3C, 0xF9, 0xC2, 0x06, 0xB8, 0x07, 0x43}
 

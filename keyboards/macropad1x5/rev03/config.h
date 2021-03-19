@@ -40,5 +40,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define RGBLIGHT_ANIMATIONS
 
 // Vial ID
+#undef VIAL_KEYBOARD_UID
 #define VIAL_KEYBOARD_UID {0x4D, 0x10, 0x8A, 0xFB, 0x35, 0x74, 0x5A, 0x6C}
 

@@ -11,10 +11,16 @@ def main():
     error = 0
     uid_to_keyboards = defaultdict(list)
 
+    keyboard_list = []
     for filename in glob("keyboards/**/vial.json", recursive=True):
         keyboard = filename[10:-10].split("/keymaps/")[0]
+        if keyboard in keyboard_list:
+            continue
+        else:
+            keyboard_list.append(keyboard)
 
         path = os.path.dirname(filename)
+
         uid = None
         while True:
             config_h = os.path.join(path, "config.h")

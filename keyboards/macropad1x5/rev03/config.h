@@ -39,7 +39,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define RGBLED_NUM 6
 #define RGBLIGHT_ANIMATIONS
 
-// Vial ID
+// Vial defines
+#define DYNAMIC_KEYMAP_LAYER_COUNT 4
+#define VIAL_UNLOCK_COMBO_ROWS { 0, 0 }
+#define VIAL_UNLOCK_COMBO_COLS { 1, 4 }
 #undef VIAL_KEYBOARD_UID
 #define VIAL_KEYBOARD_UID {0x4D, 0x10, 0x8A, 0xFB, 0x35, 0x74, 0x5A, 0x6C}
+#define VIAL_ENCODER_DEFAULT { KC_VOLD, KC_VOLU, BL_DEC, BL_INC, LCTL(KC_MINUS), LCTL(KC_PLUS), KC_TRNS, KC_TRNS }
 

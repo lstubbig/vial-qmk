@@ -19,6 +19,8 @@
 enum layer_names {
     _Media,
     _BL,
+    _Extra,
+    _Extra2
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -27,6 +29,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
     [_BL] = LAYOUT(
         BL_BRTG, _______, LCTL(LSFT(LALT(KC_M))), LGUI(KC_F4), BL_TOGG
+    ),
+    [_Extra] = LAYOUT(
+        _______, _______, _______, _______, _______
+    ),
+    [_Extra2] = LAYOUT(
+        _______, _______, _______, _______, _______
     ),
 };
 

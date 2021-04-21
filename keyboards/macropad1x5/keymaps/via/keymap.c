@@ -28,7 +28,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         LGUI(KC_6), LT(_BL, KC_SPACE), KC_MPRV, KC_MNXT, KC_MPLY
     ),
     [_BL] = LAYOUT(
-        BL_BRTG, _______, LCTL(LSFT(LALT(KC_M))), LGUI(KC_F4), BL_TOGG
+        BL_BRTG, _______, LCTL(LSFT(LALT(KC_M))), _______, BL_TOGG
     ),
     [_Extra] = LAYOUT(
         _______, _______, _______, _______, _______

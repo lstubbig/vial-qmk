@@ -33,7 +33,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define ENCODERS_PAD_B { B5 }
 
 // backlight
-#define BACKLIGHT_PIN F7
+#define BACKLIGHT_PIN F7        
 
 // Vial defines
 #define DYNAMIC_KEYMAP_LAYER_COUNT 4

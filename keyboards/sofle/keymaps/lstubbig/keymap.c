@@ -37,8 +37,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_F12,   KC_F1,          KC_F2,    KC_F3,   KC_F4,     KC_F5,                           KC_F6,    KC_F7,   KC_F8,   KC_F9,   KC_F10,    KC_F11,\
     KC_TAB,   LSFT(KC_LBRC),  KC_LBRC,  KC_RBRC, LSFT(KC_RBRC),  LALT(KC_F4),                KC_EQUAL, KC_HOME, KC_END,  KC_PGUP, KC_PGDOWN, KC_DEL,
     KC_DEL,   KC_PLUS,        KC_EQUAL, KC_UNDS, KC_MINUS,  KC_CAPS,                         KC_MINUS,  KC_LEFT, KC_DOWN, KC_UP,  KC_RIGHT,  KC_BSPC,
-    KC_LSFT,  KC_UNDO,        KC_CUT,   KC_COPY, KC_PASTE,  XXXXXXX,  _______,      _______, KC_MPLY,  KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT,   KC_LSFT,
-                            RESET,   _______,   _______,   _______, _______,          _______, _______, _______, _______, KC_PSCR
+    KC_LSFT,  KC_UNDO,        KC_CUT,   KC_COPY, KC_PASTE,  C(A(KC_V)),  _______,      _______, KC_MPLY,  KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT,   KC_LSFT,
+                            _______,   _______,   _______,   _______, _______,          _______, _______, _______, _______, KC_PSCR
 ),
 
 [_LOWER] = LAYOUT( \
@@ -306,20 +306,38 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
 void encoder_update_user(uint8_t index, bool clockwise) {
     if (index == 0) {
-        if (clockwise) {
-            tap_code(KC_VOLU);
-        } else {
-            tap_code(KC_VOLD);
+        if (layer_state_is(_QWERTY)) {
+            if (clockwise) {
+                tap_code(KC_VOLU);
+            } else {
+                tap_code(KC_VOLD);
+            }
         }
-    } else if (index == 1) {
-        if (clockwise) {
-            register_code(KC_LCTL);
-            tap_code(KC_KP_PLUS);
-            unregister_code(KC_LCTL);
-        } else {
-            register_code(KC_LCTL);
-            tap_code(KC_KP_MINUS);
-            unregister_code(KC_LCTL);
+        else if (layer_state_is(_RAISE)) {
+            if (clockwise) {
+                tap_code(KC_DOWN);
+            } else {
+                tap_code(KC_UP);
+            }
+        }
+    } else if (index == 1) {        
+        if (layer_state_is(_QWERTY)) {
+            if (clockwise) {
+                register_code(KC_LCTL);
+                tap_code(KC_KP_PLUS);
+                unregister_code(KC_LCTL);
+            } else {
+                register_code(KC_LCTL);
+                tap_code(KC_KP_MINUS);
+                unregister_code(KC_LCTL);
+            }
+        }
+        else if (layer_state_is(_RAISE)) {
+            if (clockwise) {
+                tap_code16(C(KC_TAB));
+            } else {
+                tap_code16(S(C(KC_TAB)));
+            }
         }
     }
 }

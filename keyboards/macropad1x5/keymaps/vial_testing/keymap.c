@@ -25,7 +25,7 @@ enum layer_names {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_Media] = LAYOUT(
-        KC_MUTE, LT(_BL, KC_SPACE), KC_MPRV, KC_MNXT, KC_MPLY
+        KC_MUTE, KC_1, KC_2, KC_3, KC_4
     ),
     [_BL] = LAYOUT(
         BL_BRTG, _______, LCTL(LSFT(LALT(KC_M))), _______, BL_TOGG
